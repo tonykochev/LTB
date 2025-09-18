@@ -8,7 +8,7 @@ start()
 
 function createBreedList(breedList){
     document.getElementById("breed").innerHTML = `
-    <select onchange="loadByBreed(this)">
+    <select onchange="loadByBreed(this.value)">
             <option>Choose a dog breed</option>
             ${Object.keys(breedList).map(function (breed) {
                 return `<option>${breed}</option>`
@@ -18,5 +18,5 @@ function createBreedList(breedList){
 }
 
 function loadByBreed(breed){
-    alert(breed)
+    alert(breed);
 }
