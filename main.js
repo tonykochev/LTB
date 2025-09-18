@@ -1,18 +1,22 @@
 async function start(){
     const response = await fetch("https://dog.ceo/api/breeds/list/all")
     const data = await response.json()
-    creatBreedList(data.message)
+    createBreedList(data.message)
 }
 
 start()
 
-function creatBreedList(breedList){
+function createBreedList(breedList){
     document.getElementById("breed").innerHTML = `
-    <select>
+    <select onchange="loadByBreed(this)">
             <option>Choose a dog breed</option>
-            ${Object.keys(breedList).map(function(breed){
+            ${Object.keys(breedList).map(function (breed){
                 return `<option>${breed}</option`
             }).join('')}
         </select>
     `
+}
+
+function loadByBreed(breed){
+    alert(breed)
 }
