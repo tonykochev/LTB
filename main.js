@@ -7,5 +7,12 @@ async function start(){
 start()
 
 function creatBreedList(breedList){
-
+    document.getElementById("breed").innerHTML = `
+    <select>
+            <option>Choose a dog breed</option>
+            ${Object.keys(breedList).map(function(breed){
+                return `<option>${breed}</option`
+            }).join('')}
+        </select>
+    `
 }
